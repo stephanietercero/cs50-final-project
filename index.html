@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="video-container">
+        <video id="videoPlayer" autoplay muted></video>
+        <div class="video-overlay">Come discover</div>
+    </div>
+
+    <script> // Some guidance from ChatGPT to implement JavaScript for the videoPlayer section
+        const videos = ["/static/videos/home_video.mp4"];
+        let currentVideo = 0;
+
+        const videoPlayer = document.getElementById("videoPlayer");
+        videoPlayer.src = videos[currentVideo];
+        videoPlayer.preload = "auto"; // this preloads the video
+
+        const videoElements = [];
+
+        videos.forEach((videoSrc, index) => {
+            const videoElement = document.createElement('video');
+            videoElement.src = videoSrc;
+            videoElement.preload = "auto";
+            videoElements.push(videoElement); // add to array of video elements
+
+        });
+
+
+        videoPlayer.addEventListener("ended", () => {
+            currentVideo = (currentVideo + 1) % videos.length;
+            // need to use preloaded videoElement from videoElement array
+            const nextVideoElement = videoElements[currentVideo];
+            videoPlayer.src = nextVideoElement.src; // set source of the videoplayer to the preloaded video element's source
+            videoPlayer.currentTime = 0;
+            videoPlayer.play();
+        });
+
+    </script>
+</body>
+</html>
+{% endblock %}

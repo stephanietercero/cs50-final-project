@@ -1,0 +1,336 @@
+.video-container {
+  position: relative;
+  width: 100%;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Some guidance from ChatGPT regarding this "transform" line */
+  color: white;
+  font-family: Garamond;
+  font-size: 80px;
+  font-weight: normal;
+  background-color: transparent; /* Implement this for better readability */
+  padding: 10px;
+}
+
+.navbar {
+  width: 100%; /* Full width on desktop */
+}
+
+.form-control {
+  width: 200px; /* Adjust as needed */
+}
+
+@media (max-width: 768px) {
+  .form-control {
+      width: 100%; /* Full width on mobile */
+  }
+}
+
+.grid-container {
+  display: flex; /* Align items horizontally */
+  flex-wrap: wrap;
+  gap: 10px; /* Space between images */
+  justify-content: flex-start; /* Align items to the start (left) */
+  align-items: flex-start; /* Align items to the top */
+  width: 100%; /* So the container takes up full width */
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.grid-item {
+  background-color: transparent;
+  width: 200px; /* Fixed width for each item */
+  height: 200px; /* Fixed height for each item */
+  position: relative;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  overflow: hidden; /* So content does not overflow */
+  border-radius: 20px;
+  margin-bottom: 10px; /* Space between rows */
+
+}
+
+.grid-item img { /* Some guidance from ChatGPT on this "img" section */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the area without being distorted */
+  filter: brightness(60%);
+  opacity: 1.7; /* Correct opacity value ranges from 0 to 1 */
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: inherit; /* Inherit the border-radius from parent (.grid-item) */
+  background-color: transparent;
+
+}
+
+
+.overlay { /* Overlay on Images - KEEP */
+  position: absolute;
+  top: 40%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent; /* Optional: Semi-transparent background for readability */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 35px;
+  font-weight: bold;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 1.5rem; /* Adjust as needed; use rem, em, or vw for responsiveness */
+  line-height: 1.2; /* Adjust line height to make sure text fits well */
+}
+
+.dataTables_wrapper {
+  position: relative;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button { /* Some guidance from ChatGPT regarding paginate button*/
+  background: #FFEBCD;
+  padding: 5px 10px; /* Reduce padding to make buttons smaller */
+  border-radius: 10px; /* Rounded pagination buttons */
+  display: inline-block; /* Ensure buttons are inline */
+  border: 1px solid #FFEFD5; /* Pixels and then color */
+  background: #FFEFD5;
+  text-align: right;
+  vertical-align: right;
+  color: #000;
+  font-size: 0.9em;
+  margin: 0 2px; /* Small margin between buttons */
+  transition: background 0.3s, color 0.3s;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover { /* Some guidance from ChatGPT regarding paginate button hover*/
+  background: #FFEBCD;
+  color: #000; /* Text color on hover */
+  border-color: #FFEBCD;
+}
+
+.dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_paginate { /* Some guidance from ChatGPT regarding paginate button*/
+  display: inline-block; /* To make sure both elements are in line */
+  text-align: right;
+  vertical-align: right;
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+}
+
+
+.dataTables_wrapper .dataTables_filter {
+  float: left;
+}
+
+.dataTables_wrapper .dt-buttons { /* Some guidance from chatGPT regarding dt buttons */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-start; /* Align buttons to the start of the container */
+  margin: 0;
+  padding: 0;
+}
+
+.dataTables_wrapper {
+  position: relative;
+}
+
+
+#address-table_wrapper .dataTables_filter input{ /* Some guidance from ChatGPT regarding dataTables search input styling */
+  border-radius: 100px !important; /* Rounded search input */
+  padding: 8px;
+  color: black;
+  border: 1px solid #FFEBCD;
+  background: #FFEBCD;
+  color: #000;
+  box-shadow: none;
+}
+
+#address-table_wrapper .dataTables_filter input:focus {
+  border-radius: 100px !important;
+  color: black;
+  background: #FFEBCD;
+  border-color: #FFEBCD;
+}
+
+
+.dataTables_wrapper .dataTables_info { /* bottom part of page (1 of 2 etc) */
+  margin: 0.5em 0; /* Some guidance from ChatGPT on this syntax"0.5em 0;" */
+  font-size: 0.9em;
+  color: #484848;
+}
+
+.dataTables_wrapper .dt-buttons {
+  margin: 0.5em 0;
+}
+
+
+.dataTables_wrapper .buttons-copy, .dataTables_wrapper .buttons-excel, .dataTables_wrapper .buttons-pdf {
+  float: right;
+  background: #FFEBCD;
+  color: #000;
+  border: 1px solid #fff;
+  border-radius: 250px; /* Rounded button edges*/
+  padding: 0.5em 1em;
+  margin-right: 0.5em;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
+.dataTables_wrapper .buttons-copy:hover, .dataTables_wrapper .buttons-excel:hover, .dataTables_wrapper .buttons-pdf:hover {
+  background: #FFEBCD;
+  border-color: #FFEBCD;
+}
+
+#address-table thead th { /* Guidance from chat GPT regarding choosing elements that "modernize" and "elevate" the look of my website */
+  background: #FFEBCD; /* header background */
+  color: #fff; /* White text */
+  font-family: Garamond;
+  font-weight: bold;
+  padding: 10px;
+  padding: 12px 15px;
+  text-align: left;
+  border-radius: 10px 10px 0 0; /* Rounded top corners */
+}
+
+#address-table tbody tr {
+  border-bottom: 1px solid #FFEBCD; /* Slightly lighter border color */
+}
+
+#address-table tbody tr:nth-child(even) { /* Some guidance ChatGPT regarding syntax of "nth-child(even)" */
+  font-family: Garamond;
+  background-color: #FDF5E6; /* Slightly different background for alternate rows */
+}
+
+#address-table tbody tr:hover {
+  font-family: Garamond;
+  background-color: #FFEBCD; /* Highlight row on hover */
+}
+
+#address-table td, #address-table th {
+  font-family: Garamond;
+  padding: 12px 15px;
+  text-align: left;
+  border-right: 0.5px solid #ccc;
+  border-bottom: 0.5px solid #ccc;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7FFFD4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #FFE4B5;
+}
+
+footer {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.dynamic-title {
+  color: #CD853F;
+  font-size: 50px;
+  text-transform: uppercase;  /* Makes the text uppercase */
+  text-align: center;
+  font-family: 'Garamond';
+  font-weight: normal;
+  margin-bottom: 20px;    /* Spacing under the title */
+}
+.title {
+  color: #CD853F;
+  font-size: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Garamond;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;   /* Centers the container horizontally */
+  border-radius: 30px;
+}
+
+.about-resources-text {
+  flex: 1; /* Allows the text to take up available space */
+  text-align: auto;
+  font-family: Garamond;
+  font-size: 1.1em;
+}
+
+.about-resources-image img {
+  max-width: 500px; /* Guarantees that the image is no wider than 50px */
+  height: 375px; /* Maintains aspect ratio */
+}
+
+
+h6 {
+  text-align: auto;
+  font-family: Garamond;
+  font-size: 1.6em;
+  line-height: 1.5; /* Improves readability */
+  color: #333;
+  margin-bottom: 1rem; /* Adds spacing below */
+  font-family: Garamond;
+  text-align: center;
+  }
+
+.about-resources-image {
+  position: relative;
+  display: inline-block;
+  }
+
+.photo-credit {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Guidance from Chat GPT about what is in the parentheses */
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.link-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Space between columns */
+}
+.link-columns ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.link-columns ul li { /* Guidance ChatGPT regarding "ul li" */
+    margin-bottom: 5px; /* Space between list items */
+}
+
+.about-resources-image-last {
+  flex: 0 0 300px; /* Fixed width for the image */
+}
+.about-resources-image-last img {
+  width: 100%;
+  height: auto;
+}

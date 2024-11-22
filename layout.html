@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}STEPH'S RECS{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- My custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <!-- Some guidance from ChatGPT to implement drop down menu in the nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">STEPH'S RECS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Destinations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for destination in destinations %}
+                        <a class="dropdown-item" href="javascript:void(0);" onclick="selectDestination('{{ destination.name }}')">{{ destination.name }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/resources">Resources</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="content">
+        {% block content %}
+        <!-- Dynamic content will be inserted here by scripts -->
+        {% endblock %}
+    </div>
+
+<!-- Some guidance from ChatGPT to include jQuery, Popper.js and Bootstrap CSS links -->
+ <!-- jQuery -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <!-- Popper.js -->
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+ <!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ <script> // Guidance from ChatGPT to implement fetchSelection JavaScript section
+    function fetchSelection(type, selection) {
+        const url = `/selection/${type}/${selection}`;
+        fetch(url)
+            .then(response => response.text())  // Expecting HTML response
+            .then(data => {
+                // Update content without touching the header and footer
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+    function selectDestination(destination) {
+            fetchSelection('destination', destination);
+        }
+        function selectCountry(country) {
+            fetchSelection('country', country);
+        }
+    </script>
